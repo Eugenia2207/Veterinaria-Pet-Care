@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care - Inicio</title>
+    <style>
+        :root{
+            --color1: #c2382e;
+            --darkcolor1: #a81c12;
+            --color2: #0a2928;
+            --color3: #358581;
+        }
+        @font-face {
+            font-family: icons;
+            src: url(Iconos.woff);
+        }
+        @font-face {
+            font-family: LStories;
+            src: url(Light\ Stories.otf);
+        }
+        @font-face {
+            font-family: Cool;
+            src: url(Coolslim.otf);
+        }
+        @font-face {
+            font-family: icons2;
+            src: url(Iconos2.woff);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            background: var(--color1);
+            padding: 20px 30px;
+            font-family: Arial, Helvetica, sans-serif;  
+        }
+        #logo{
+            background: white;
+            border-radius: 30vw;
+            padding: 5px;
+            color: var(--color1);
+            font-size: clamp(2.5vw, 20px, 20px);
+            font-weight: 600;
+            display: grid;
+            place-content: center;
+        }
+        header a{
+            color: white;
+            font-size: clamp(1.3vw, 15px, 15px);
+            color:white;
+            position: relative;
+            padding: 3px;
+        }
+        header ul li a:not(#icon)::before, header ul li a:not(#icon):hover::before{
+            content: "";
+            border-bottom: 1px solid white;
+            position: absolute;
+            bottom: 0;
+        
+        }
+        header ul li a:not(#icon):before{
+            width: 0;
+            left: 50%;
+            right: 50%;
+            transition: all .3s;
+        }
+        header ul li a:not(#icon):hover::before{
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+        #icon{
+            font-family: icons;
+        }
+        header nav{
+            display: flex;
+        }
+        header ul{
+            display: flex;
+            align-self: center;
+        }
+        header li{
+            padding-left: 2vw;
+        }
+        .text{
+            position:absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 30px;
+            z-index: 2;
+            white-space: normal;
+            width: 50%;
+        }
+        .text h1{
+            font-size: clamp(3.8vw, 24px, 24px);
+            font-family: LStories;
+            letter-spacing: 0.2vw;
+        }
+        .text p{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: clamp(1.2vw, 13px, 13px);
+            text-indent: 10px;
+        }
+        .hero{
+            display: flex;
+            position: relative;
+        }
+        .hero img{
+            width: 100%;
+            display: block;
+        }
+        button{
+            border: none;
+            background: var(--color1);
+            color: white;
+            border-radius: 50px;
+            padding: clamp(1.5vw, 13px, 13px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: clamp(1.3vw, 13px, 13px);
+            transition: all .3s;
+            outline: none;
+        }
+        button:hover{
+            background:var(--darkcolor1);
+            transform: scale(1.1);
+            
+        }
+        button p{
+            display: inline;
+            padding-left: 0.5vw;
+        }
+        .col1{
+            grid-area: col1;
+        }
+        .col2{
+            grid-area: col2;
+        }
+        .col3{
+            grid-area: col3;
+        }
+        .columns article{
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .columns{
+            display: grid;
+            grid-template:"col1 col2 col3";
+            padding: 0 30px;
+            background: var(--color3);
+        }
+        article #p{
+            text-align: justify;
+            text-indent: 10px;
+            font-size: clamp(1.2vw, 15px, 15px);
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--color2);
+        }
+        .columns h2{
+            text-align: center;
+            font-family: Cool;
+            font-size: clamp(3vw, 35px, 35px);
+        }
+        .columns img{
+            width: 15%;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+        }
+        footer{
+            background: var(--color1);
+            display: flex;
+            justify-content: center;
+            display: grid;
+            grid-template: "a1 a2 a3 a4"
+                           "copyr copyr copyr copyr";
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        footer article:first-child{
+            grid-area: a1;
+        }
+        footer article:nth-child(2){
+            grid-area: a2;
+        }
+        footer article:nth-child(3){
+            grid-area: a3;
+        }
+        footer article:nth-child(4){
+            grid-area: a4;
+        }
+        footer article:nth-child(3) h3, footer article:nth-child(4) h3{
+            text-align: center;
+        }
+        footer article{
+            padding: 25px;
+        }
+        footer h3{
+            margin-bottom: 5px;
+            font-size: clamp(1.3vw, 16px, 16px); 
+        
+        }
+        footer article p{
+            text-align: justify;
+        }
+        footer a, footer li, footer article p{
+            text-indent: 10px;
+            font-size: clamp(1.2vw, 15px, 15px);
+            color:#ffffffc7;
+        }
+        footer #icon{
+            display: inline;
+            padding-right: 0.5vw;
+            font-size: clamp(1vw, 12px, 12px);
+        }
+        footer #copyr{
+            grid-area: copyr;
+            text-align: center;
+            margin-top: 20px;
+            font-size: clamp(1.2vw, 12px, 12px);
+        }
+        span{
+            display: none;
+        }
+        @media (max-width: 800px){
+            .hero img{
+                margin-top: 130px;
+            }
+            .columns{
+                grid-template: "col1"
+                               "col2"
+                               "col3";
+            }
+            .columns img{
+                width: 10%
+            }
+            .columns article{
+                padding: 20px;
+            }
+            footer{
+                grid-template: "a1"
+                               "a2"
+                               "a3"
+                               "a4"
+                               "copyr";
+                justify-content: left;
+            }
+            footer article{
+                padding: 15px 25px;
+            }
+            footer article:nth-child(3) h3, footer article:nth-child(4) h3{
+            text-align: left;
+            }
+            .burger-ico {
+                font-family: icons;
+                color: #fff; 
+                display: block; 
+                cursor: pointer; 
+                font-weight: 800; 
+                font-size: 30px; 
+                z-index: 9; 
+                transition: all .6s;  
+                display: grid; 
+                place-items: center;
+            }
+            .burger-active{
+                font-family: icons2;
+                transform: rotate(90deg);
+            }
+            .shadow {
+                transition: all .4s; 
+                background: rgba(0, 0, 0, 0);
+            }
+            .shadow-active {
+                position: fixed; 
+                top: 0; 
+                height: 100%; 
+                width: 100%; 
+                background: rgba(0, 0, 0, .8); 
+                z-index: 4;
+                backdrop-filter: blur(3px);
+            }
+            nav {
+                position: fixed; 
+                right: -300px; 
+                width: 300px; 
+                background: var(--color1); 
+                height: 100%; 
+                top: 0; 
+                transition: all .4s; 
+                z-index: 8;
+            }
+            nav ul {
+                flex-direction: column; 
+                padding: 82px 22px;
+            }
+            nav ul li {
+                padding: 12px 0; 
+                
+            }
+            nav ul a{
+                font-size: 22px;
+            }
+            .show-menu {
+            transform: translateX(-300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shadow"></div>
+    <header>
+        <a id="logo" href="">PET CARE</a>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="">Alimentos</a></li>
+                <li><a href="">Farmacia</a></li>
+                <li><a href="">Agendarse</a></li>
+                <li><a id="icon" href="">i</a></li>
+                <li><a id="icon" href="">f</a></li>
+                <li><a id="icon" href="">t</a></li>
+            </ul>
+        </nav>
+        <span class="burger-ico">m</span>
+        </header>
+        <section class="hero">
+            <div class="text">
+                <h1>En Pet Care tenemos lo mejor para tu mascota</h1>
+                <br>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum earum illo commodi iste blanditiis. Provident quod necessitatibus, deleniti consectetur minus ea i.</p>
+                <br>
+                <button>Más Información<p id="icon">a</p></button>
+            </div>
+            <div class="img">
+                <img src="Mascotas.jpeg">
+            </div>
+        </section>
+        <section class="columns">
+            <article class="col1">
+                <img src="img/paw.png">
+                <h2>Lorem ipsum</h2>
+                <br>
+                <p id="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis blanditiis nisi amet voluptatem cupiditate aut optio tempore! Tempore excepturi, perferendis mollitia debitis esse recusandae fugit nihil nobis laudantium consequatur, porro quos explicabo architecto voluptas ducimus voluptatem maxime laboriosam molestias atque.</p>
+                <br>
+                <div class="button">
+                    <button>Ver más<p id="icon">a</p></button>
+                </div>
+            </article>
+            <article class="col2">
+                <img src="img/vacuna.png">
+                <h2>Dolor ipsum</h2>
+                <br>
+                <p id="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis blanditiis nisi amet voluptatem cupiditate aut optio tempore! Tempore excepturi, perferendis mollitia debitis esse recusandae fugit nihil nobis laudantium consequatur, porro quos explicabo architecto voluptas ducimus voluptatem maxime laboriosam molestias atque.</p>
+                <br>
+                <div class="button">
+                    <button>Ver más<p id="icon">a</p></button>
+                </div>
+            </article>
+            <article class="col3">
+                <img src="img/agenda.png">
+                <h2>Ipsum dolor</h2>
+                <br>
+                <p id="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis blanditiis nisi amet voluptatem cupiditate aut optio tempore! Tempore excepturi, perferendis mollitia debitis esse recusandae fugit nihil nobis laudantium consequatur, porro quos explicabo architecto voluptas ducimus voluptatem maxime laboriosam molestias atque.</p>
+                <br>
+                <div class="button">
+                    <button>Ver más<p id="icon">a</p></button>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <article>
+                <h3>CONTACTO</h3>
+                <ul>
+                    <li><a href=""><p id="icon">f</p>Facebook</a></li>
+                    <li><a href=""><p id="icon">i</p>Instagram</a></li>
+                    <li><a href=""><p id="icon">t</p>Twitter</a></li>
+                    <li><a href="">info@clinicaveterinaria.com</a></li>
+                    <li>Tel: 090 553 666</li>
+                </ul>
+            </article>
+            <article>
+                <h3>AYUDA</h3>
+                <ul>
+                    <li><a href="">Ayuda</a></li>
+                    <li><a href="">Sucursales</a></li>
+                    <li><a href="">Pólitica de Privacidad</a></li>
+                </ul>
+            </article>
+            <article>
+                <h3>INFORMACIÓN IMPORTANTE</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quo id blanditiis quis suscipit numquam eveniet eaque inventore laborum pariatur.</p>
+            </article>
+            <article>
+                <h3>INFORMACIÓN IMPORTANTE 2</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas assumenda, magnam tempora porro ab eum incidunt et a cum odio!</p>
+            </article>
+            <p id="copyr">© Todos los derechos reservados. Clínica Veterinaria</p>
+        </footer>
+        <script>
+            let nav = document.querySelector('nav');
+            let burguerIco = document.querySelector('.burger-ico');
+            let shadow = document.querySelector('.shadow');
+    
+            let menuToggle = () => {
+    
+                nav.classList.toggle('show-menu');
+                burguerIco.classList.toggle('burger-active');
+                shadow.classList.toggle('shadow-active');
+    
+            };
+    
+            burguerIco.addEventListener('click', menuToggle);
+            shadow.addEventListener('click', menuToggle);
+        </script>
+</body>
+</html>
